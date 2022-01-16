@@ -1,11 +1,12 @@
 // Can't do this, == is final
 
-//class BadClass {
-//  override def ==(other: Any): Boolean = {
-//    println(s"Comparing $this to $other")
-//    false
-//  }
-//}
+class BadClass {
+  override def ==(other: Any): Boolean = {
+    println(s"Comparing $this to $other")
+    false
+  }
+}
+//=== try this name if u want to create ur own method
 
 class Authority {
   final def theWord: String =
@@ -14,10 +15,10 @@ class Authority {
 
 // this won't compile either
 
-//class Argumentative extends Authority {
-//  override def theWord: String =
-//    "No, it's not!"
-//}
+class Argumentative extends Authority {
+  override def theWord: String =
+    "No, it's not!"
+}
 
 // String is final, so can't extend it
 

@@ -5,9 +5,9 @@ abstract class Upper {
 }
 
 class Lower extends Upper {
-  override def blip: String = "blip"
+   override def blip: String = "blip"
    override val blop: String = "bloop"
-  override def op(x: Int, y: Int): Int = x + y
-  def op(x: Double, y: Double): Double = x + y
+   override def op(x: Int, y: Int): Int = x + y
+   /*override*/ def op(x: Double, y: Double): Double = x + y
 }
 
