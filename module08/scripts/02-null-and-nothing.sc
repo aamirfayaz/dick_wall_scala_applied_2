@@ -4,6 +4,13 @@ s1.charAt(1)
 
 val s2: String = null
 
+val s:Null = null
+
+
+val n: Nothing = throw new Exception("")
+//val n: Nothing = null CTE
+val nu: Null = n
+
 // NullPointerException...
 // s2.charAt(1)
 
@@ -19,3 +26,5 @@ val emptyList = List.empty
 
 def fail(msg: String): Nothing =
   throw new IllegalStateException(msg)
+
+val r: Double = if(true) 11.2 else fail("")

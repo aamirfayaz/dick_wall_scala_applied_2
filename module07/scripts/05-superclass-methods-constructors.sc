@@ -8,7 +8,7 @@ class Car(
   val make: String,
   val model: String,
   override val age: Int
-) extends Vehicle(name + "d", age) {
+) extends Vehicle(name, age) {
 
   override def toString: String =
     s"a $make $model, named ${super.toString}"
@@ -22,7 +22,7 @@ class Car2(
   val make: String,
   val model: String,
    age: Int
-) extends Vehicle(name + "d", age) {
+) extends Vehicle(name, age) {
   //it has public name and age from Vehicle
 
   val x = this.name // private name

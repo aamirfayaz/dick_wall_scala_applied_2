@@ -50,9 +50,10 @@ class Module07Solutions extends KoanSuite with Matchers with SeveredStackTraces 
   // an abstract maxCars field of type Int (that specifies the maximum number of cars that may
   // be added to the engine), and finally
   // an add method that takes a Car, and adds it to the ListBuffer *unless* that would exceed the
-  // maximum number of Cars allowed in the maxCars field. If there are too many cars, throw an
+  // maximum number of Cars allowed in the maxCars field. If there arCargo care too many cars, throw an
   // IllegalStateException with a suitable message
   abstract class Engine extends RollingStock {
+
     protected val cars = ListBuffer.empty[Car]
     
     def pull: String = name + " pulls " + cars.mkString(" and ")
@@ -113,7 +114,7 @@ class Module07Solutions extends KoanSuite with Matchers with SeveredStackTraces 
     dieselEngine.add(new PassengerCar)
     dieselEngine.add(new CargoCar)
 
-    dieselEngine.pull should be ("Diesel engine pulls Cargo car carrying cargo and " +
+    dieselEngine.pull should be ("Diesel engine pulls Cargo car carryCargo caring cargo and " +
                                  "Passenger car carrying people and " +
                                  "Cargo car carrying cargo and " +
                                  "Passenger car carrying people and " +

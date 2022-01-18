@@ -22,6 +22,8 @@ trait Fruit extends Product with Serializable
 case class Apple(name: String) extends Fruit
 case class Orange(name: String) extends Fruit
 
-if (true) Apple("Fiji") else Orange("Jaffa")
+val r: Product with Serializable with Fruit = {
+  if (true) Apple("Fiji") else Orange("Jaffa")
+}
 List(Apple("fiji"), Orange("Jaffa"))
 
