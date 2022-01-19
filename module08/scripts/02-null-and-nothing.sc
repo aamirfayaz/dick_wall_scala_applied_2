@@ -7,19 +7,20 @@ val s2: String = null
 val s:Null = null
 
 
-val n: Nothing = throw new Exception("")
+ // val n: Nothing = throw new Exception("")
 //val n: Nothing = null CTE
-val nu: Null = n
+//val nu: Null = n
 
 // NullPointerException...
 // s2.charAt(1)
 
 s1.isInstanceOf[String]
-s2.isInstanceOf[String]
+s2.isInstanceOf[String] // coz null means absence of instance.
 
 
 
-val emptyList = List.empty
+val emptyList: List[Nothing] = List.empty
+val str: List[String] = emptyList
 
 1 :: emptyList
 "hello" :: emptyList

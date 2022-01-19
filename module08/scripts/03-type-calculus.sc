@@ -17,7 +17,7 @@ if (flag) 2.0 else fail("not 2.0") // Double + Nothing = Double
 
 if (flag) "yo" else fail("no yo") // String + Nothing = String
 
-trait Fruit extends Product with Serializable
+trait Fruit //extends Product with Serializable
 
 case class Apple(name: String) extends Fruit
 case class Orange(name: String) extends Fruit
@@ -25,5 +25,12 @@ case class Orange(name: String) extends Fruit
 val r: Product with Serializable with Fruit = {
   if (true) Apple("Fiji") else Orange("Jaffa")
 }
+
+val xs: Fruit = if(true) Apple("kashmiri") else Orange("bhojpuri")
 List(Apple("fiji"), Orange("Jaffa"))
 
+def fail(message: String): Unit = {
+  println(message)
+  System.exit(1)
+  throw new Exception("")
+}
