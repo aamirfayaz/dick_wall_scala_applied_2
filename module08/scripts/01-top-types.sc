@@ -41,3 +41,14 @@ val n2: Null = null
 //type Null cannot be used in a type pattern or isInstanceOf test
 //n2.isInstanceOf[Null]
 //isInstanceOf is a run time check
+
+val lots: Any = 1000
+
+ lots.isInstanceOf[AnyRef]
+/*
+isInstanceOf works only on objects,
+so scala before failing for compile time error,
+checks if any implicit conversion is possible,
+so it is implicitly converted to RichInt
+
+ */
