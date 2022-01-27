@@ -27,5 +27,5 @@ val str: List[String] = emptyList
 
 def fail(msg: String): Nothing =
   throw new IllegalStateException(msg)
-
+//Nothing has no instance, exists only to complete type system
 val r: Double = if(true) 11.2 else fail("")

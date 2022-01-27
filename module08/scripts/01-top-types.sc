@@ -32,3 +32,12 @@ sa.asInstanceOf[String]
 "1a".hashCode()
 "hashcode".##
 "1a".##
+
+val n: String  = null
+
+n.isInstanceOf[String]
+
+val n2: Null = null
+//type Null cannot be used in a type pattern or isInstanceOf test
+//n2.isInstanceOf[Null]
+//isInstanceOf is a run time check

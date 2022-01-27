@@ -12,7 +12,7 @@ addInts(1.0.toInt, 2.0.toInt)
 
 // Rich wrappers:
 
-val d1 = -1.5
+val d1: Double = -1.5
 val d2 = 1.5
 
 d1.abs
@@ -35,7 +35,24 @@ def sumOf[@specialized(Int, Double, Long) T: Numeric](items: T*): T = {
   items.foldLeft(numeric.zero)(numeric.plus)
 }
 
+/*def sumOf[T](items: T*)(implicit n: Numeric[T]): T = {
+  val numeric = implicitly[Numeric[T]]
+  items.foldLeft(numeric.zero)(numeric.plus)
+}*/
+
 sumOf(1,2,3)
 
 // Don't do this, just tuple them instead...
 def pair[@specialized T, @specialized U](t: T, u: U): (T, U) = (t, u)
+
+pair(1,2)
+
+trait Foo[@specialized(Int) A, @specialized(Int,Double) B] { }
+
+
+trait Foo[@specialized A] { }
+/*
+A specialized template parameter here gets expanded/rewritten
+for 9 different primitive types
+  ( void, boolean, byte, char, int, long, short, double, float ).
+    So, basically you end up with 20 classes instead of 2.*/
