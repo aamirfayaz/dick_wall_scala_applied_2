@@ -25,6 +25,7 @@ class Demo extends Car with Function1[String, String] {
 }
 
 val demo = new Demo
+val demo2:String => String = new Demo
 
 demo("cherry")
 
