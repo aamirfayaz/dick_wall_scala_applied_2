@@ -9,7 +9,7 @@ val mustang = new Car {
 
 mustang.describe
 
-class ActualCar(val color: String, val name: String) extends Car
+class ActualCar(val color: String, val name: String) extends AnyRef with Car
 
 val modelT = new ActualCar("black", "Model T")
 
@@ -24,7 +24,7 @@ class Demo extends Car with Function1[String, String] {
   override def apply(v1: String): String = s"$v1 $color"
 }
 
-val demo = new Demo
+val demo: Demo = new Demo
 val demo2:String => String = new Demo
 
 demo("cherry")
@@ -32,3 +32,10 @@ demo("cherry")
 val descriptionLength = demo.andThen(_.length)
 
 descriptionLength("cherry")
+
+//with traits we implement a little, and get a lot
+class MyCollection[T] extends Traversable[T] {
+  override def foreach[U](f: T => U): Unit = {
+    ()
+  }
+}
