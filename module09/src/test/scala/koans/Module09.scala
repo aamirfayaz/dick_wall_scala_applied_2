@@ -21,7 +21,7 @@ class Module09 extends KoanSuite with Matchers with SeveredStackTraces {
   // "database" and you can retrieve an object by its UUID.
   //
   // You could even think of this as a simple database mock object
-
+  // just a test comment
   object StatefulEntity {
     val storedEntities = new mutable.HashMap[UUID, StatefulEntity]
 
