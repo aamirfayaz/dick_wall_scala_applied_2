@@ -54,10 +54,16 @@ trait HardtopConvertible extends Convertible {
   override def describe: String =
     s"hard-top ${super.describe}"
 }
-
+//Scala traits solves DAG(directed acyclic graph) problem
+/*
+ in this inheritance ,its figuring out one journey b/w all of these traits,
+ that visits them all without violating any of the extension.
+ -- every trait is called before its super trait
+ */
 class ClassicConvertible1(val color: String, val vintage: Int)
   extends Car with PoweredConvertible with Classic with HardtopConvertible
 
+new ClassicConvertible1("red", 1965)
 
 class ClassicConvertible2(val color: String, val vintage: Int)
   extends Car with Classic with PoweredConvertible with HardtopConvertible
@@ -71,7 +77,7 @@ new ClassicConvertible3("red", 1965)
 
 
 class ClassicCar(val color: String, val vintage: Int) extends Car with Classic
-
-val ccc = new ClassicCar("red", 1965) with PoweredConvertible with HardtopConvertible
+//construction composition
+val ccc = new ClassicCar("red", 1965) with PoweredConvertible with HardtopConvertible //just in time
 
 ccc.describe

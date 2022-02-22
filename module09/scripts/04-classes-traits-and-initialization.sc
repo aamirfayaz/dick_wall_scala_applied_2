@@ -1,3 +1,8 @@
+abstract class CanHaveConstructorParams(x: Int) {
+  val y = x
+}
+
+
 class CoordsC(val x: Double, val y: Double) {
   override def toString: String = s"($x, $y)"
   val distToOrigin: Double = math.sqrt((x * x) + (y * y))
@@ -16,6 +21,7 @@ trait CoordsT {
   val y: Double
   override def toString: String = s"($x, $y)"
   lazy val distToOrigin: Double = math.sqrt((x * x) + (y * y))
+  //remove lazy and see ouput
 }
 
 case class Coords(x: Double, y: Double) extends CoordsT
@@ -29,11 +35,14 @@ val c3 = new CoordsT {
   val y: Double = 4.0
 }
 
-c3.distToOrigin
+//remove lazy and see output, it will be zero, gotcha
+val x = c3.distToOrigin
 
-val c4 = new {
+val c4 = new { // new {} is obj,so x and y values are supplied before trait mixin 'with CoordsT' //Constructor Composition
+  //
   val x: Double = 3.0
   val y: Double = 4.0
-} with CoordsT
+} with CoordsT //with here not extends, gotcha
+// so either make disToOrigin lazy or make 'with CoordsT' extension
 
 c4.distToOrigin
