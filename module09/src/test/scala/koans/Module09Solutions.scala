@@ -50,7 +50,7 @@ class Module09Solutions extends KoanSuite with Matchers with SeveredStackTraces 
 
 
   // Fix the tests below, first of all
-  test ("Stateful entity contract") {
+/*  test ("Stateful entity contract") {
     val se1 = new StatefulEntity
     val se2 = new StatefulEntity
 
@@ -68,7 +68,7 @@ class Module09Solutions extends KoanSuite with Matchers with SeveredStackTraces 
 
     se1.cancel() should be (true)
     se2.cancel() should be (true)
-  }
+  }*/
 
   // Add a trait called CreatedUpdated which extends StatefulEntity but adds two new Option[LocalDateTime]
   // date fields, one for the created date, and the other for the updated date
@@ -90,6 +90,7 @@ class Module09Solutions extends KoanSuite with Matchers with SeveredStackTraces 
     private var updatedDate: Option[LocalDateTime] = None
 
     override def save() = {
+      println("AA")
       val saved = super.save()
       if (saved) {
         val newDate = LocalDateTime.now()
@@ -103,7 +104,7 @@ class Module09Solutions extends KoanSuite with Matchers with SeveredStackTraces 
     def lastUpdated: Option[LocalDateTime] = updatedDate
   }
 
-  test ("StatefulEntity with CreatedUpdated contract") {
+/*  test ("StatefulEntity with CreatedUpdated contract") {
     val se = new StatefulEntity with CreatedUpdated
 
     se.whenCreated should be (None)
@@ -131,7 +132,7 @@ class Module09Solutions extends KoanSuite with Matchers with SeveredStackTraces 
     se.cancel()
     se.whenCreated should be (created)
     se.lastUpdated should be (updated)
-  }
+  }*/
 
   // Add another trait, this time it should be called CreateOnly, and should override the save operation
   // to only save if the object has never been saved before - if the object has already been saved it
@@ -143,6 +144,7 @@ class Module09Solutions extends KoanSuite with Matchers with SeveredStackTraces 
     var alreadySaved = false
 
     override def save() = {
+      println("BB")
       if (alreadySaved) false else {
         alreadySaved = true
         super.save()

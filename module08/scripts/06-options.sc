@@ -68,9 +68,14 @@ val res1 = List(1,2,3).flatMap { index =>
   }
 }
 
-val res2 = List(1,2,3).flatMap { index =>
+val res2: List[Char] = List(1,2,3).flatMap { index =>
   numWords.get(index).flatMap { str =>
     str.drop(4).headOption
   }
 }
-
+val lx: List[Int] = List(1,2,3)
+val rx: List[Char] = for {
+  index <- lx
+  str <- numWords.get(index)
+  res <- str.drop(4).headOption
+} yield res

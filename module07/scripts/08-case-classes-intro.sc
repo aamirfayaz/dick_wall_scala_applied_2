@@ -18,9 +18,8 @@ mustang == Car("Ford", "Mustang", 1964)
 mustang eq Car("Ford", "Mustang", 1965)
 
 /**
-  By default == checks for reference checks,
-  in case class == is overriden to check contents
-  eq always checks for references
+eq is instance equality in Scala,
+while == always calls .equals
  */
 
 /*

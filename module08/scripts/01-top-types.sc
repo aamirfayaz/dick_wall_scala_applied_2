@@ -1,3 +1,8 @@
+val j1: Any = if(true) "" else ()
+val j2: Any = if(true) "" //implicit Unit
+val j3: AnyVal = if(true) 1 else ()
+val j4: AnyVal = if(true) 1 //implicit Unit
+
 val s: String = "hello"
 
 val sa: Any = s
@@ -18,7 +23,6 @@ val iav: AnyVal = i
  //val iar: AnyRef = i
 
 ia.isInstanceOf[Int]
-ia.asInstanceOf[Int]
 /*
  java.lang.ClassCastException:
  java.lang.Integer cannot be cast to java.lang.String
@@ -26,7 +30,6 @@ ia.asInstanceOf[Int]
 */
 
 sa.isInstanceOf[String]
-sa.asInstanceOf[String]
  //sa.asInstanceOf[Int] ClassCastException
 
 "1a".hashCode()

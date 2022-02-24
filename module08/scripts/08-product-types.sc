@@ -11,7 +11,7 @@ case class Triplet2(i: Int, ch: Char, str: String)
 
 Triplet2(1, '2', "three") == Triplet2(1, '2', "three")
 Triplet2(1, '2', "three") == Triplet2(2, '2', "three")
-Triplet1(1, '2', "three") == Triplet2(1, '2', "three")
+Triplet1(1, '2', "three") == Triplet2(1, '2', "three") // false , good one
 Triplet2(1, '2', "three") == (1, '2', "three")
 
 

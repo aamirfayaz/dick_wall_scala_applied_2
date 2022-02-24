@@ -97,5 +97,5 @@ b2.##
 
 //case class NakliFruit(brandd: String, ripde: Boolean) extends Banana(brandd, ripde)
 //on CC can't extend other CC
-
+// case-to-case inheritance is prohibited
 

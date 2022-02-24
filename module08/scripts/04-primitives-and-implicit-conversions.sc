@@ -31,7 +31,7 @@ str.slice(2, 4)
 
 // @specialized to avoid unwanted boxing (but don't overuse)
 def sumOf[@specialized(Int, Double, Long) T: Numeric](items: T*): T = {
-  val numeric = implicitly[Numeric[T]]
+  val numeric: Numeric[T] = implicitly[Numeric[T]]
   items.foldLeft(numeric.zero)(numeric.plus)
 }
 
