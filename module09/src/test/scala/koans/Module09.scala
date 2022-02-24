@@ -58,17 +58,17 @@ class Module09 extends KoanSuite with Matchers with SeveredStackTraces {
     se1.id should equal (se1.id)
     se1.id should not equal (se2.id)
 
-    StatefulEntity.findById(se1.id) should be (__)
-    StatefulEntity.findById(se2.id) should be (__)
+    StatefulEntity.findById(se1.id) should be (None)
+    StatefulEntity.findById(se2.id) should be (None)
 
     se1.save() should be (true)
     se2.save() should be (true)
 
-    StatefulEntity.findById(se1.id) should be (__)
-    StatefulEntity.findById(se2.id) should be (__)
+    StatefulEntity.findById(se1.id) should be (Some(se1))
+    StatefulEntity.findById(se2.id) should be (Some(se2))
 
-    se1.cancel() should be (__)
-    se2.cancel() should be (__)
+    se1.cancel() should be (true)
+    se2.cancel() should be (true)
   }
 
   // Add a trait called CreatedUpdated which extends StatefulEntity but adds two new Option[LocalDateTime]

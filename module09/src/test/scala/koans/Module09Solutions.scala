@@ -93,7 +93,7 @@ class Module09Solutions extends KoanSuite with Matchers with SeveredStackTraces 
       val saved = super.save()
       if (saved) {
         val newDate = LocalDateTime.now()
-        if (createdDate == None) createdDate = Some(newDate)
+        if (createdDate.isEmpty) createdDate = Some(newDate)
         updatedDate = Some(newDate)
       }
       saved
