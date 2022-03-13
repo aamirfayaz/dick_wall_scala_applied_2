@@ -1,3 +1,4 @@
+//mixin or import
 trait Logging {
   def error(msg: String): Unit = println(s"Error: $msg")
   def warn(msg: String): Unit = println(s"Warn: $msg")
