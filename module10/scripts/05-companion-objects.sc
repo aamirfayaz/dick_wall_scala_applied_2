@@ -1,4 +1,4 @@
-class ShippingContainer[T] private (val items: Seq[T]) {
+class ShippingContainer[T] private /** [this] **/ (val items: Seq[T]) {
   private[this] val maxCount = 10
   private def isFull: Boolean = items.length >= maxCount
 
@@ -16,11 +16,11 @@ object ShippingContainer {
 //    container.maxCount
 
   def containerFull(container: ShippingContainer[_]): Boolean =
-    container.isFull
+    container.isFull //companion can access private methods of class and vice versa
 }
 
 val sc = ShippingContainer("a", "b", "c")
 sc.items
 //sc.maxCount
-//sc.isFull
+//sc.isFull private
 ShippingContainer.containerFull(sc)

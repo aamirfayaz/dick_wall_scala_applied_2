@@ -77,6 +77,7 @@ class Module11Solutions extends FunSpec with Matchers with MockFactory with Prop
 
     it ("should return a ratio between 0.0 and 1.0 for any genetic sequence") {
       forAll(seqGen) { sequence =>
+        println("sequence : " + sequence)
         val stability = stabilityChecker(sequence)
 
         stability should (be >= 0.0 and be <= 1.0)

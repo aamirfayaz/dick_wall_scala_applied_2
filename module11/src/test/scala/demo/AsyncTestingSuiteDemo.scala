@@ -10,7 +10,7 @@ class AsyncTestingSuiteDemo extends AsyncFunSuite with Matchers {
 
     for (result <- resultF) yield {
       println(result * 4)
-      result * 4 should be (3.141 +- 0.001)
+      result * 4 should be (9.141 +- 0.001)
     }
   }
 }
